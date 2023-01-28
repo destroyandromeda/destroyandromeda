@@ -1,0 +1,261 @@
+<svg fill="none" viewBox="0 0 800 400" width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <style>
+                @use postcss-nested;
+                @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+                @font-face {
+                    font-family: 'Galactic Vanguardian NCV';
+                    src: local('Galactic Vanguardian NCV'), url(https://manzdev.github.io/cursos-assets/css3/fonts/galactic.woff) format('woff'), url(https://manzdev.github.io/cursos-assets/css3/fonts/galactic.ttf) format('truetype');
+                }
+                :root {
+                    --cassette-width: 600px;
+                    --cassette-height: calc(var(--cassette-width) * 0.6);
+                    --cassette-texture: repeating-linear-gradient(to bottom, #252525 0 3px, transparent 3px 7px);
+                }
+                html,
+                body {
+                    height: 100%;
+                }
+                body {
+                    background: repeating-linear-gradient(145deg, #000 0 10px, #6300d4 15px 25px, #000 30px 75px, #351a31 80px 95px, #000 100px 120px);
+                    margin: 0;
+                }
+                .cassette {
+                    width: var(--cassette-width);
+                    height: var(--cassette-height);
+                    margin: 3em auto;
+                    padding: 1.4em 1em 0 1em;
+                    background-color: #333;
+                    background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.05)), var(--cassette-texture);
+                    clip-path: polygon(1% 6%, 5% 0, 95% 0, 99% 6%, 99% 78%, 100% 80%, 100% 94%, 97% 100%, 4% 100%, 0 94%, 0 80%, 1% 78%, 1% 6%, 0 0, 1% 6%);
+                    display: flex;
+                    flex-direction: column;
+                }
+                .label {
+                    background-color: #fff;
+                    background-image: linear-gradient(transparent 45%, #ca5840 45% 46%, transparent 46% 52%, #ca5840 52% 53%, transparent 54% 58%, #ca5840 58% 59%, transparent 60% 64%, #ca5840 64% 67%, transparent 67% 70%, #ca5840 70% 74%, transparent 74% 76%, #ca5840 76% 80%, transparent 80% 83%, #ca5840 83% 89%, transparent 89% 91%, #ca5840 91% 100%), linear-gradient(130deg, #bbb, #fff);
+                    border-radius: 25px;
+                    height: 75%;
+                    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5) inset;
+                    clip-path: polygon(0 100%, 0 17%, 6% 0, 94% 0, 100% 17%, 100% 100%);
+                }
+                .central {
+                    background-color: #444;
+                    border: 2px solid #000;
+                    width: calc(var(--cassette-width) / 1.6);
+                    height: 110px;
+                    margin: auto;
+                    overflow: hidden;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    justify-content: center;
+                    align-content: center;
+                    align-items: center;
+                    position: relative;
+                }
+                .central::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    background-image: linear-gradient(150deg, transparent 14%, rgba(255, 255, 255, 0.1) 15% 25%, transparent 26% 30%, rgba(255, 255, 255, 0.1) 31% 34%, transparent 35% 37%, rgba(255, 255, 255, 0.1) 38% 39%, transparent 40%);
+                }
+                .axis {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background: #333;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .axis::after {
+                    content: "";
+                    display: inline-block;
+                    width: 9px;
+                    height: 9px;
+                    border: 4px solid #292929;
+                    border-radius: 50%;
+                    background: #555;
+                }
+                .arc {
+                    width: 70px;
+                    height: 70px;
+                    background: #aaa;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .arc::before,
+                .arc::after {
+                    position: absolute;
+                    content: "";
+                    width: 10px;
+                    height: 70px;
+                    background: linear-gradient(#aaa 20px, transparent 20px 50px, #aaa 50px 70px);
+                }
+                .arc::after {
+                    transform: rotateZ(90deg);
+                }
+                .tape {
+                    --tape-left-size: 175px;
+                    --tape-right-size: 125px;
+                    border-radius: 50%;
+                    border: 2px solid #222;
+                    background: #111;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .tape.tape.left {
+                    width: var(--tape-left-size);
+                    height: var(--tape-left-size);
+                }
+                .tape.tape.right {
+                    width: var(--tape-right-size);
+                    height: var(--tape-right-size);
+                }
+                .animated .tape {
+                    animation: spin 6s linear infinite forwards;
+                }
+                .animated .tape.right {
+                    animation-duration: 3s;
+                }
+                @keyframes spin {
+                    0% {
+                        transform: rotateZ(360deg);
+                    }
+                    100% {
+                        transform: rotateZ(0);
+                    }
+                }
+                .text {
+                    padding-top: 0.5em;
+                    font-family: 'Rock Salt';
+                    font-size: 32px;
+                    text-align: center;
+                    color: #555;
+                }
+                .bottom {
+                    background-color: #222;
+                    width: calc(var(--cassette-width) / 1.5);
+                    height: 80px;
+                    margin: 1em auto 0;
+                    padding: 0.8em;
+                    clip-path: polygon(0 100%, 5% 0, 95% 0, 100% 100%);
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: flex-end;
+                }
+                .bottom .inner {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 200px;
+                    height: 50px;
+                }
+                .screw {
+                    width: 20px;
+                    height: 20px;
+                    background: #111;
+                    border-radius: 50%;
+                }
+                .inner .screw {
+                    background: #040404;
+                }
+                div.title {
+                    background: rgba(0, 0, 0, 0.75);
+                    padding: 0.4em;
+                    font-family: 'Galactic Vanguardian NCV';
+                    font-size: 72px;
+                    letter-spacing: -4px;
+                    color: #fff;
+                    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8), 0 0 20px #f44336;
+                }
+                div.title .little {
+                    display: flex;
+                    flex-direction: column;
+                    letter-spacing: -1px;
+                    font-size: 32px;
+                    text-align: right;
+                }
+                div.title>div {
+                    display: flex;
+                    justify-content: center;
+                }
+                .play {
+                    display: block;
+                    width: 200px;
+                    height: 75px;
+                    margin: 1em auto;
+                    background: #eee;
+                    border: 6px solid #bbb;
+                    border-top-color: #fff;
+                    border-left-color: #fff;
+                    font-family: 'Galactic Vanguardian NCV';
+                    font-size: 32px;
+                    text-shadow: 0 2px 3px rgba(255, 255, 255, 0.5), 0 3px 4px rgba(0, 0, 0, 0.5);
+                }
+                .play:hover {
+                    cursor: pointer;
+                }
+                .play:active {
+                    position: relative;
+                    top: 4px;
+                    color: #444;
+                    background: #ccc;
+                    border-color: #fff;
+                    border-top-color: #bbb;
+                    border-left-color: #bbb;
+                    outline: 1px solid #000;
+                }
+                .title {
+                    opacity: 0;
+                }
+                .title.running {
+                    animation: stamp 5s ease 1 forwards;
+                    will-change: opacity;
+                }
+                @keyframes stamp {
+                    0% {
+                        opacity: 0;
+                    }
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            </style>
+            <div class="cassette">
+                <div class="label">
+                    <div class="text">Awesome JS mix vol. 1</div>
+                    <div class="central">
+                        <div class="tape left">
+                            <div class="arc">
+                                <div class="axis"></div>
+                            </div>
+                        </div>
+                        <div class="tape right">
+                            <div class="arc">
+                                <div class="axis"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="screw"></div>
+                    <div class="inner">
+                        <div class="screw"></div>
+                        <div class="screw"></div>
+                    </div>
+                    <div class="screw"></div>
+                </div>
+            </div>
+        </div>
+    </foreignObject>
+</svg>
